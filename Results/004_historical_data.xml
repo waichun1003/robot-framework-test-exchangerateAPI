@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.1a2 (Python 3.9.2 on win32)" generated="20230215 11:06:22.956" rpa="false" schemaversion="3">
+<suite id="s1" name="004 Get The Historical Exchange Rate" source="D:\Automatisation Test\RF_API_Tasks\robotframework-test-main\Tests\004_historical_data\004_get_the_historical_exchange_rate.robot">
+<test id="s1-t1" name="Test getting historical exchange rate with valid API key from USD at 1 FEBRUARY 2023" line="14">
+<kw name="Given Get the historical exchange rate by api key ${API_KEY} from currency ${base_currency} at year ${year} month ${month} and day ${day}" library="historical_data" sourcename="Get the historical exchange rate by api key ${API_KEY} from currency ${base_currency} at year ${year} month ${month} and day ${day}">
+<kw name="Get the historical exchange rate" library="api_library">
+<var>${hitory_json}</var>
+<arg>${API_KEY}</arg>
+<arg>${base_currency}</arg>
+<arg>${year}</arg>
+<arg>${month}</arg>
+<arg>${day}</arg>
+<msg timestamp="20230215 11:06:23.440" level="INFO">${hitory_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'plan-upgrade-required'}</msg>
+<status status="PASS" starttime="20230215 11:06:23.129" endtime="20230215 11:06:23.440"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${hitory_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230215 11:06:23.440" level="INFO">${hitory_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'plan-upgrade-required'}</msg>
+<status status="PASS" starttime="20230215 11:06:23.440" endtime="20230215 11:06:23.441"/>
+</kw>
+<status status="PASS" starttime="20230215 11:06:23.127" endtime="20230215 11:06:23.441"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${response}</var>
+<arg>${hitory_json['result']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:23.443" level="INFO">${response} = error</msg>
+<status status="PASS" starttime="20230215 11:06:23.441" endtime="20230215 11:06:23.443"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${base_code}</var>
+<arg>${hitory_json['base_code']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:23.444" level="FAIL">Resolving variable '${hitory_json['base_code']}' failed: KeyError: 'base_code'</msg>
+<status status="FAIL" starttime="20230215 11:06:23.443" endtime="20230215 11:06:23.444"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${documentation}</var>
+<arg>${hitory_json['documentation']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.444" endtime="20230215 11:06:23.444"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${terms_of_use}</var>
+<arg>${hitory_json['terms_of_use']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.445" endtime="20230215 11:06:23.445"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Hyear}</var>
+<arg>${hitory_json['year']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.445" endtime="20230215 11:06:23.445"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Hmonth}</var>
+<arg>${hitory_json['month']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.446" endtime="20230215 11:06:23.446"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Hday}</var>
+<arg>${hitory_json['day']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.446" endtime="20230215 11:06:23.446"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${conversion_rates}</var>
+<arg>${hitory_json['conversion_rates']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.447" endtime="20230215 11:06:23.447"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${conversion_rates_usd}</var>
+<arg>${hitory_json['conversion_rates']['USD']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.448" endtime="20230215 11:06:23.448"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${response}</arg>
+<arg>success</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.448" endtime="20230215 11:06:23.448"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${base_code}</arg>
+<arg>USD</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.449" endtime="20230215 11:06:23.449"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${documentation}</arg>
+<arg>https://www.exchangerate-api.com/docs</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.449" endtime="20230215 11:06:23.449"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${terms_of_use}</arg>
+<arg>https://www.exchangerate-api.com/terms</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.450" endtime="20230215 11:06:23.450"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${Hyear}</arg>
+<arg>${year}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.450" endtime="20230215 11:06:23.450"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${Hmonth}</arg>
+<arg>${month}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.450" endtime="20230215 11:06:23.451"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${Hday}</arg>
+<arg>${day}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.451" endtime="20230215 11:06:23.451"/>
+</kw>
+<kw name="Then Should Be True" library="BuiltIn">
+<arg>${conversion_rates} is not None</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.452" endtime="20230215 11:06:23.452"/>
+</kw>
+<kw name="Then Should Be Equal As Integers" library="BuiltIn">
+<arg>${conversion_rates_usd}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" starttime="20230215 11:06:23.452" endtime="20230215 11:06:23.452"/>
+</kw>
+<doc>Test historical exchange rate endpoint from USD at 1 FEBRUARY 2023</doc>
+<tag>smoke</tag>
+<status status="FAIL" starttime="20230215 11:06:23.126" endtime="20230215 11:06:23.453">Resolving variable '${hitory_json['base_code']}' failed: KeyError: 'base_code'</status>
+</test>
+<test id="s1-t2" name="Test inactive-account error" line="37">
+<kw name="Set Variable" library="BuiltIn">
+<var>${API_KEY}</var>
+<arg>nln2</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:23.456" level="INFO">${API_KEY} = nln2</msg>
+<status status="PASS" starttime="20230215 11:06:23.456" endtime="20230215 11:06:23.456"/>
+</kw>
+<kw name="Given Get the historical exchange rate by api key ${API_KEY} from currency ${base_currency} at year ${year} month ${month} and day ${day}" library="historical_data" sourcename="Get the historical exchange rate by api key ${API_KEY} from currency ${base_currency} at year ${year} month ${month} and day ${day}">
+<kw name="Get the historical exchange rate" library="api_library">
+<var>${hitory_json}</var>
+<arg>${API_KEY}</arg>
+<arg>${base_currency}</arg>
+<arg>${year}</arg>
+<arg>${month}</arg>
+<arg>${day}</arg>
+<msg timestamp="20230215 11:06:23.778" level="INFO">${hitory_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'inactive-account', 'extra-info': 'Please contact ...</msg>
+<status status="PASS" starttime="20230215 11:06:23.458" endtime="20230215 11:06:23.778"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${hitory_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230215 11:06:23.779" level="INFO">${hitory_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'inactive-account', 'extra-info': 'Please contact ...</msg>
+<status status="PASS" starttime="20230215 11:06:23.779" endtime="20230215 11:06:23.779"/>
+</kw>
+<status status="PASS" starttime="20230215 11:06:23.457" endtime="20230215 11:06:23.779"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error}</var>
+<arg>${hitory_json['result']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:23.780" level="INFO">${error} = error</msg>
+<status status="PASS" starttime="20230215 11:06:23.780" endtime="20230215 11:06:23.780"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error_type}</var>
+<arg>${hitory_json['error-type']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:23.781" level="INFO">${error_type} = inactive-account</msg>
+<status status="PASS" starttime="20230215 11:06:23.781" endtime="20230215 11:06:23.781"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error}</arg>
+<arg>error</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:23.782" endtime="20230215 11:06:23.782"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error_type}</arg>
+<arg>inactive-account</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:23.783" endtime="20230215 11:06:23.783"/>
+</kw>
+<doc>Test inactive-account error</doc>
+<tag>smoke</tag>
+<status status="PASS" starttime="20230215 11:06:23.455" endtime="20230215 11:06:23.784"/>
+</test>
+<test id="s1-t3" name="Test invalid-key error" line="47">
+<kw name="Set Variable" library="BuiltIn">
+<var>${API_KEY}</var>
+<arg>da</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:23.787" level="INFO">${API_KEY} = da</msg>
+<status status="PASS" starttime="20230215 11:06:23.786" endtime="20230215 11:06:23.787"/>
+</kw>
+<kw name="Given Get the historical exchange rate by api key ${API_KEY} from currency ${base_currency} at year ${year} month ${month} and day ${day}" library="historical_data" sourcename="Get the historical exchange rate by api key ${API_KEY} from currency ${base_currency} at year ${year} month ${month} and day ${day}">
+<kw name="Get the historical exchange rate" library="api_library">
+<var>${hitory_json}</var>
+<arg>${API_KEY}</arg>
+<arg>${base_currency}</arg>
+<arg>${year}</arg>
+<arg>${month}</arg>
+<arg>${day}</arg>
+<msg timestamp="20230215 11:06:24.086" level="INFO">${hitory_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'invalid-key'}</msg>
+<status status="PASS" starttime="20230215 11:06:23.788" endtime="20230215 11:06:24.086"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${hitory_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230215 11:06:24.086" level="INFO">${hitory_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'invalid-key'}</msg>
+<status status="PASS" starttime="20230215 11:06:24.086" endtime="20230215 11:06:24.086"/>
+</kw>
+<status status="PASS" starttime="20230215 11:06:23.787" endtime="20230215 11:06:24.086"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error}</var>
+<arg>${hitory_json['result']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:24.088" level="INFO">${error} = error</msg>
+<status status="PASS" starttime="20230215 11:06:24.087" endtime="20230215 11:06:24.088"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error_type}</var>
+<arg>${hitory_json['error-type']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:24.089" level="INFO">${error_type} = invalid-key</msg>
+<status status="PASS" starttime="20230215 11:06:24.088" endtime="20230215 11:06:24.089"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error}</arg>
+<arg>error</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:24.089" endtime="20230215 11:06:24.090"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error_type}</arg>
+<arg>invalid-key</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:24.090" endtime="20230215 11:06:24.090"/>
+</kw>
+<doc>Test invalid-key error</doc>
+<tag>smoke</tag>
+<status status="PASS" starttime="20230215 11:06:23.786" endtime="20230215 11:06:24.091"/>
+</test>
+<test id="s1-t4" name="Test plan-upgrade-required" line="57">
+<kw name="Given Get the historical exchange rate by api key ${API_KEY} from currency ${base_currency} at year ${year} month ${month} and day ${day}" library="historical_data" sourcename="Get the historical exchange rate by api key ${API_KEY} from currency ${base_currency} at year ${year} month ${month} and day ${day}">
+<kw name="Get the historical exchange rate" library="api_library">
+<var>${hitory_json}</var>
+<arg>${API_KEY}</arg>
+<arg>${base_currency}</arg>
+<arg>${year}</arg>
+<arg>${month}</arg>
+<arg>${day}</arg>
+<msg timestamp="20230215 11:06:24.434" level="INFO">${hitory_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'plan-upgrade-required'}</msg>
+<status status="PASS" starttime="20230215 11:06:24.094" endtime="20230215 11:06:24.434"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${hitory_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230215 11:06:24.435" level="INFO">${hitory_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'plan-upgrade-required'}</msg>
+<status status="PASS" starttime="20230215 11:06:24.434" endtime="20230215 11:06:24.435"/>
+</kw>
+<status status="PASS" starttime="20230215 11:06:24.093" endtime="20230215 11:06:24.435"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error}</var>
+<arg>${hitory_json['result']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:24.436" level="INFO">${error} = error</msg>
+<status status="PASS" starttime="20230215 11:06:24.435" endtime="20230215 11:06:24.436"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error_type}</var>
+<arg>${hitory_json['error-type']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:24.437" level="INFO">${error_type} = plan-upgrade-required</msg>
+<status status="PASS" starttime="20230215 11:06:24.436" endtime="20230215 11:06:24.437"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error}</arg>
+<arg>error</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:24.438" endtime="20230215 11:06:24.438"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error_type}</arg>
+<arg>plan-upgrade-required</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:24.438" endtime="20230215 11:06:24.439"/>
+</kw>
+<doc>Test plan-upgrade-required error</doc>
+<tag>smoke</tag>
+<status status="PASS" starttime="20230215 11:06:24.092" endtime="20230215 11:06:24.439"/>
+</test>
+<test id="s1-t5" name="Test unsupported-code error" line="66">
+<kw name="Set Variable" library="BuiltIn">
+<var>${base_currency}</var>
+<arg>test</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:24.441" level="INFO">${base_currency} = test</msg>
+<status status="PASS" starttime="20230215 11:06:24.441" endtime="20230215 11:06:24.441"/>
+</kw>
+<kw name="Given Get the historical exchange rate by api key ${API_KEY} from currency ${base_currency} at year ${year} month ${month} and day ${day}" library="historical_data" sourcename="Get the historical exchange rate by api key ${API_KEY} from currency ${base_currency} at year ${year} month ${month} and day ${day}">
+<kw name="Get the historical exchange rate" library="api_library">
+<var>${hitory_json}</var>
+<arg>${API_KEY}</arg>
+<arg>${base_currency}</arg>
+<arg>${year}</arg>
+<arg>${month}</arg>
+<arg>${day}</arg>
+<msg timestamp="20230215 11:06:24.908" level="INFO">${hitory_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'plan-upgrade-required'}</msg>
+<status status="PASS" starttime="20230215 11:06:24.442" endtime="20230215 11:06:24.908"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${hitory_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230215 11:06:24.909" level="INFO">${hitory_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'plan-upgrade-required'}</msg>
+<status status="PASS" starttime="20230215 11:06:24.908" endtime="20230215 11:06:24.909"/>
+</kw>
+<status status="PASS" starttime="20230215 11:06:24.442" endtime="20230215 11:06:24.909"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error}</var>
+<arg>${hitory_json['result']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:24.910" level="INFO">${error} = error</msg>
+<status status="PASS" starttime="20230215 11:06:24.909" endtime="20230215 11:06:24.910"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error_type}</var>
+<arg>${hitory_json['error-type']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:24.911" level="INFO">${error_type} = plan-upgrade-required</msg>
+<status status="PASS" starttime="20230215 11:06:24.910" endtime="20230215 11:06:24.911"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error}</arg>
+<arg>error</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:24.911" endtime="20230215 11:06:24.912"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error_type}</arg>
+<arg>unsupported-code</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230215 11:06:24.913" level="FAIL">plan-upgrade-required != unsupported-code</msg>
+<status status="FAIL" starttime="20230215 11:06:24.912" endtime="20230215 11:06:24.913"/>
+</kw>
+<doc>Test unsupported-code error</doc>
+<tag>smoke</tag>
+<status status="FAIL" starttime="20230215 11:06:24.440" endtime="20230215 11:06:24.913">plan-upgrade-required != unsupported-code</status>
+</test>
+<status status="FAIL" starttime="20230215 11:06:22.960" endtime="20230215 11:06:24.916"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="2" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="3" fail="2" skip="0" id="s1" name="004 Get The Historical Exchange Rate">004 Get The Historical Exchange Rate</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

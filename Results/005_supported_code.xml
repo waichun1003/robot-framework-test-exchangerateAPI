@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.1a2 (Python 3.9.2 on win32)" generated="20230215 11:06:25.321" rpa="false" schemaversion="3">
+<suite id="s1" name="005 Get The Supported Codes" source="D:\Automatisation Test\RF_API_Tasks\robotframework-test-main\Tests\005_supported_code\005_get_the_supported_codes.robot">
+<test id="s1-t1" name="Test getting supported codes with valid API key" line="10">
+<kw name="Given Get the supported codes by api key ${API_KEY}" library="supported_code" sourcename="Get the supported codes by api key ${API_KEY}">
+<kw name="Get the supported codes" library="api_library">
+<var>${supported_codes_json}</var>
+<arg>${API_KEY}</arg>
+<msg timestamp="20230215 11:06:25.854" level="INFO">${supported_codes_json} = {'result': 'success', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms_of_use': 'https://www.exchangerate-api.com/terms', 'supported_codes': [['AED', 'UAE Dirham'], ['AFN', 'Afghan Afg...</msg>
+<status status="PASS" starttime="20230215 11:06:25.493" endtime="20230215 11:06:25.854"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${supported_codes_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230215 11:06:25.855" level="INFO">${supported_codes_json} = {'result': 'success', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms_of_use': 'https://www.exchangerate-api.com/terms', 'supported_codes': [['AED', 'UAE Dirham'], ['AFN', 'Afghan Afg...</msg>
+<status status="PASS" starttime="20230215 11:06:25.854" endtime="20230215 11:06:25.855"/>
+</kw>
+<status status="PASS" starttime="20230215 11:06:25.493" endtime="20230215 11:06:25.855"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${response}</var>
+<arg>${supported_codes_json['result']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:25.856" level="INFO">${response} = success</msg>
+<status status="PASS" starttime="20230215 11:06:25.856" endtime="20230215 11:06:25.856"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${documentation}</var>
+<arg>${supported_codes_json['documentation']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:25.857" level="INFO">${documentation} = https://www.exchangerate-api.com/docs</msg>
+<status status="PASS" starttime="20230215 11:06:25.857" endtime="20230215 11:06:25.857"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${terms_of_use}</var>
+<arg>${supported_codes_json['terms_of_use']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:25.859" level="INFO">${terms_of_use} = https://www.exchangerate-api.com/terms</msg>
+<status status="PASS" starttime="20230215 11:06:25.858" endtime="20230215 11:06:25.859"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${supported_codes}</var>
+<arg>${supported_codes_json['supported_codes']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:25.860" level="INFO">${supported_codes} = [['AED', 'UAE Dirham'], ['AFN', 'Afghan Afghani'], ['ALL', 'Albanian Lek'], ['AMD', 'Armenian Dram'], ['ANG', 'Netherlands Antillian Guilder'], ['AOA', 'Angolan Kwanza'], ['ARS', 'Argentine Peso'], ['...</msg>
+<status status="PASS" starttime="20230215 11:06:25.859" endtime="20230215 11:06:25.860"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${response}</arg>
+<arg>success</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:25.860" endtime="20230215 11:06:25.861"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${documentation}</arg>
+<arg>https://www.exchangerate-api.com/docs</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:25.861" endtime="20230215 11:06:25.862"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${terms_of_use}</arg>
+<arg>https://www.exchangerate-api.com/terms</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:25.862" endtime="20230215 11:06:25.862"/>
+</kw>
+<kw name="Then Should Be True" library="BuiltIn">
+<arg>${supported_codes} is not None</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230215 11:06:25.863" endtime="20230215 11:06:25.864"/>
+</kw>
+<doc>Test supported codes API endpoint</doc>
+<tag>smoke</tag>
+<status status="PASS" starttime="20230215 11:06:25.492" endtime="20230215 11:06:25.865"/>
+</test>
+<test id="s1-t2" name="Test inactive-account error" line="23">
+<kw name="Set Variable" library="BuiltIn">
+<var>${API_KEY}</var>
+<arg>nln2</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:25.867" level="INFO">${API_KEY} = nln2</msg>
+<status status="PASS" starttime="20230215 11:06:25.867" endtime="20230215 11:06:25.867"/>
+</kw>
+<kw name="Given Get the supported codes by api key ${API_KEY}" library="supported_code" sourcename="Get the supported codes by api key ${API_KEY}">
+<kw name="Get the supported codes" library="api_library">
+<var>${supported_codes_json}</var>
+<arg>${API_KEY}</arg>
+<msg timestamp="20230215 11:06:26.214" level="INFO">${supported_codes_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'inactive-account', 'extra-info': 'Please contact ...</msg>
+<status status="PASS" starttime="20230215 11:06:25.868" endtime="20230215 11:06:26.214"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${supported_codes_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230215 11:06:26.215" level="INFO">${supported_codes_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'inactive-account', 'extra-info': 'Please contact ...</msg>
+<status status="PASS" starttime="20230215 11:06:26.214" endtime="20230215 11:06:26.215"/>
+</kw>
+<status status="PASS" starttime="20230215 11:06:25.868" endtime="20230215 11:06:26.215"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error}</var>
+<arg>${supported_codes_json['result']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:26.216" level="INFO">${error} = error</msg>
+<status status="PASS" starttime="20230215 11:06:26.215" endtime="20230215 11:06:26.216"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error_type}</var>
+<arg>${supported_codes_json['error-type']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:26.217" level="INFO">${error_type} = inactive-account</msg>
+<status status="PASS" starttime="20230215 11:06:26.217" endtime="20230215 11:06:26.217"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error}</arg>
+<arg>error</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:26.218" endtime="20230215 11:06:26.218"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error_type}</arg>
+<arg>inactive-account</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:26.219" endtime="20230215 11:06:26.219"/>
+</kw>
+<doc>Test inactive-account error</doc>
+<tag>smoke</tag>
+<status status="PASS" starttime="20230215 11:06:25.866" endtime="20230215 11:06:26.219"/>
+</test>
+<test id="s1-t3" name="Test invalid-key error" line="33">
+<kw name="Set Variable" library="BuiltIn">
+<var>${API_KEY}</var>
+<arg>ea</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:26.222" level="INFO">${API_KEY} = ea</msg>
+<status status="PASS" starttime="20230215 11:06:26.221" endtime="20230215 11:06:26.222"/>
+</kw>
+<kw name="Given Get the supported codes by api key ${API_KEY}" library="supported_code" sourcename="Get the supported codes by api key ${API_KEY}">
+<kw name="Get the supported codes" library="api_library">
+<var>${supported_codes_json}</var>
+<arg>${API_KEY}</arg>
+<msg timestamp="20230215 11:06:26.641" level="INFO">${supported_codes_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'invalid-key'}</msg>
+<status status="PASS" starttime="20230215 11:06:26.223" endtime="20230215 11:06:26.641"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${supported_codes_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230215 11:06:26.642" level="INFO">${supported_codes_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'invalid-key'}</msg>
+<status status="PASS" starttime="20230215 11:06:26.642" endtime="20230215 11:06:26.642"/>
+</kw>
+<status status="PASS" starttime="20230215 11:06:26.222" endtime="20230215 11:06:26.643"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error}</var>
+<arg>${supported_codes_json['result']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:26.644" level="INFO">${error} = error</msg>
+<status status="PASS" starttime="20230215 11:06:26.643" endtime="20230215 11:06:26.644"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error_type}</var>
+<arg>${supported_codes_json['error-type']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:26.645" level="INFO">${error_type} = invalid-key</msg>
+<status status="PASS" starttime="20230215 11:06:26.644" endtime="20230215 11:06:26.645"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error}</arg>
+<arg>error</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:26.646" endtime="20230215 11:06:26.646"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error_type}</arg>
+<arg>invalid-key</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:26.647" endtime="20230215 11:06:26.647"/>
+</kw>
+<doc>Test invalid-key error</doc>
+<tag>smoke</tag>
+<status status="PASS" starttime="20230215 11:06:26.221" endtime="20230215 11:06:26.648"/>
+</test>
+<status status="PASS" starttime="20230215 11:06:25.326" endtime="20230215 11:06:26.650"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="005 Get The Supported Codes">005 Get The Supported Codes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

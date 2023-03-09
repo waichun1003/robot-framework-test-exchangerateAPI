@@ -1,0 +1,138 @@
+==============================================================================
+Functional Test                                                               
+==============================================================================
+Functional Test.001 Exchange Rate                                             
+==============================================================================
+Functional Test.001 Exchange Rate.001 Get Base Currency Exchange Rate         
+==============================================================================
+Test getting exchange rates with valid API key for USD :: Test exc... | PASS |
+------------------------------------------------------------------------------
+Test invalid-key error :: Test invalid-key error                      | FAIL |
+KeyError: 'error'
+------------------------------------------------------------------------------
+Test unsupported-code error :: Test unsupported-code error            | FAIL |
+KeyError: 'error'
+------------------------------------------------------------------------------
+ Test plan-upgrade-required :: Test plan-upgrade-required error       | FAIL |
+Resolving variable '${exchange_rate_json['error-type']}' failed: KeyError: 'error-type'
+------------------------------------------------------------------------------
+ Test inactive-account error :: Test inactive-account error           | FAIL |
+KeyError: 'error'
+------------------------------------------------------------------------------
+Functional Test.001 Exchange Rate.001 Get Base Currency Exchange Rate | FAIL |
+5 tests, 1 passed, 4 failed
+==============================================================================
+Functional Test.001 Exchange Rate                                     | FAIL |
+5 tests, 1 passed, 4 failed
+==============================================================================
+Functional Test.002 Enriched Data                                             
+==============================================================================
+Functional Test.002 Enriched Data.002 Get The Target Currency Enriched Data   
+==============================================================================
+Test getting target currency enriched data with valid API key for ... | FAIL |
+Resolving variable '${enriched_data_json['base_code']}' failed: KeyError: 'base_code'
+------------------------------------------------------------------------------
+ Test invalid-key error :: Test invalid-key error                     | FAIL |
+inactive-account != invalid-key
+------------------------------------------------------------------------------
+Test unsupported-code error :: Test unsupported-code error            | FAIL |
+plan-upgrade-required != unsupported-code
+------------------------------------------------------------------------------
+ Test plan-upgrade-required :: Test plan-upgrade-required error       | PASS |
+------------------------------------------------------------------------------
+ Test inactive-account error :: Test inactive-account error           | PASS |
+------------------------------------------------------------------------------
+Functional Test.002 Enriched Data.002 Get The Target Currency Enri... | FAIL |
+5 tests, 2 passed, 3 failed
+==============================================================================
+Functional Test.002 Enriched Data                                     | FAIL |
+5 tests, 2 passed, 3 failed
+==============================================================================
+Functional Test.003 Pair Conversation                                         
+==============================================================================
+Functional Test.003 Pair Conversation.003 Get Currency Pair Conversion        
+==============================================================================
+Test getting pair conversion with valid API key for USD to EUR of ... | FAIL |
+0 != 1
+------------------------------------------------------------------------------
+Test invalid-key error :: Test invalid-key error                      | FAIL |
+inactive-account != invalid-key
+------------------------------------------------------------------------------
+Test unsupported-code error :: Test unsupported-code error            | FAIL |
+malformed-request != unsupported-code
+------------------------------------------------------------------------------
+ Test plan-upgrade-required :: Test plan-upgrade-required error       | FAIL |
+Resolving variable '${pair_conversion_json['error-type']}' failed: KeyError: 'error-type'
+------------------------------------------------------------------------------
+ Test inactive-account error :: Test inactive-account error           | PASS |
+------------------------------------------------------------------------------
+Functional Test.003 Pair Conversation.003 Get Currency Pair Conver... | FAIL |
+5 tests, 1 passed, 4 failed
+==============================================================================
+Functional Test.003 Pair Conversation                                 | FAIL |
+5 tests, 1 passed, 4 failed
+==============================================================================
+Functional Test.004 Historical Data                                           
+==============================================================================
+Functional Test.004 Historical Data.004 Get The Historical Exchange Rate      
+==============================================================================
+Test getting historical exchange rate with valid API key from USD ... | FAIL |
+Resolving variable '${hitory_json['base_code']}' failed: KeyError: 'base_code'
+------------------------------------------------------------------------------
+Test inactive-account error :: Test inactive-account error            | PASS |
+------------------------------------------------------------------------------
+Test invalid-key error :: Test invalid-key error                      | FAIL |
+inactive-account != invalid-key
+------------------------------------------------------------------------------
+Test plan-upgrade-required :: Test plan-upgrade-required error        | PASS |
+------------------------------------------------------------------------------
+Test unsupported-code error :: Test unsupported-code error            | FAIL |
+plan-upgrade-required != unsupported-code
+------------------------------------------------------------------------------
+Functional Test.004 Historical Data.004 Get The Historical Exchang... | FAIL |
+5 tests, 2 passed, 3 failed
+==============================================================================
+Functional Test.004 Historical Data                                   | FAIL |
+5 tests, 2 passed, 3 failed
+==============================================================================
+Functional Test.005 Supported Code                                            
+==============================================================================
+Functional Test.005 Supported Code.005 Get The Supported Codes                
+==============================================================================
+Test getting supported codes with valid API key :: Test supported ... | PASS |
+------------------------------------------------------------------------------
+Test inactive-account error :: Test inactive-account error            | PASS |
+------------------------------------------------------------------------------
+Test invalid-key error :: Test invalid-key error                      | FAIL |
+inactive-account != invalid-key
+------------------------------------------------------------------------------
+Functional Test.005 Supported Code.005 Get The Supported Codes        | FAIL |
+3 tests, 2 passed, 1 failed
+==============================================================================
+Functional Test.005 Supported Code                                    | FAIL |
+3 tests, 2 passed, 1 failed
+==============================================================================
+Functional Test.006 Api Request Quota                                         
+==============================================================================
+Functional Test.006 Api Request Quota.006 Get The Plan Quota                  
+==============================================================================
+Test getting the plan quota with valid API key :: Test plan quota ... | FAIL |
+Evaluating expression '796 !=' failed: SyntaxError: invalid syntax (<string>, line 1)
+------------------------------------------------------------------------------
+Test inactive-account error :: Test inactive-account error            | PASS |
+------------------------------------------------------------------------------
+Test invalid-key error :: Test invalid-key error                      | FAIL |
+inactive-account != invalid-key
+------------------------------------------------------------------------------
+Functional Test.006 Api Request Quota.006 Get The Plan Quota          | FAIL |
+3 tests, 1 passed, 2 failed
+==============================================================================
+Functional Test.006 Api Request Quota                                 | FAIL |
+3 tests, 1 passed, 2 failed
+==============================================================================
+Functional Test                                                       | FAIL |
+26 tests, 9 passed, 17 failed
+==============================================================================
+Output:  /Users/waichuncheng/PycharmProjects/robotframework-test-main 2/results/output.xml
+Log:     /Users/waichuncheng/PycharmProjects/robotframework-test-main 2/results/log.html
+Report:  /Users/waichuncheng/PycharmProjects/robotframework-test-main 2/results/report.html

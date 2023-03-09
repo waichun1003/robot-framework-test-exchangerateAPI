@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.9 on darwin)" generated="20230308 01:39:41.506" rpa="false" schemaversion="3">
+<suite id="s1" name="Functional Test" source="/Users/waichuncheng/PycharmProjects/robotframework-test-main 2/tests">
+<suite id="s1-s1" name="001 Exchange Rate" source="/Users/waichuncheng/PycharmProjects/robotframework-test-main 2/tests/001_exchange_rate">
+<suite id="s1-s1-s1" name="001 Get Base Currency Exchange Rate" source="/Users/waichuncheng/PycharmProjects/robotframework-test-main 2/tests/001_exchange_rate/001_get_base_currency_exchange_rate.robot">
+<test id="s1-s1-s1-t1" name="Test getting exchange rates with valid API key for USD" line="11">
+<kw name="Given Get exchange rate by api key ${API_KEY} and base currency ${base_currency}" library="common" sourcename="Get exchange rate by api key ${API_KEY} and base currency ${base_currency}">
+<kw name="Get base currency exchange rate" library="api_library">
+<var>${exchange_rate_json}</var>
+<arg>${API_KEY}</arg>
+<arg>${base_currency}</arg>
+<msg timestamp="20230308 01:39:42.010" level="DEBUG">Starting new HTTPS connection (1): v6.exchangerate-api.com:443</msg>
+<msg timestamp="20230308 01:39:42.422" level="DEBUG">https://v6.exchangerate-api.com:443 "GET /v6/a54f9e17254e056d54ab74c8/latest/USD?api_key=a54f9e17254e056d54ab74c8&amp;base_currency=USD HTTP/1.1" 200 1572</msg>
+<msg timestamp="20230308 01:39:42.433" level="INFO">${exchange_rate_json} = {'result': 'success', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms_of_use': 'https://www.exchangerate-api.com/terms', 'time_last_update_unix': 1678147202, 'time_last_update_utc': '...</msg>
+<status status="PASS" starttime="20230308 01:39:41.969" endtime="20230308 01:39:42.434"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${exchange_rate_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20230308 01:39:42.436" level="INFO">${exchange_rate_json} = {'result': 'success', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms_of_use': 'https://www.exchangerate-api.com/terms', 'time_last_update_unix': 1678147202, 'time_last_update_utc': '...</msg>
+<status status="PASS" starttime="20230308 01:39:42.435" endtime="20230308 01:39:42.437"/>
+</kw>
+<status status="PASS" starttime="20230308 01:39:41.968" endtime="20230308 01:39:42.437"/>
+</kw>
+<kw name="When Wait for 5000 milliseconds" library="common" sourcename="Wait for ${milliseconds} milliseconds">
+<kw name="Wait for milliseconds" library="utilities">
+<arg>${milliseconds}</arg>
+<status status="PASS" starttime="20230308 01:39:42.438" endtime="20230308 01:39:47.443"/>
+</kw>
+<status status="PASS" starttime="20230308 01:39:42.437" endtime="20230308 01:39:47.444"/>
+</kw>
+<kw name="Then Get latest base currency and verification by api key ${API_KEY} and base currency ${base_currency}" library="common" sourcename="Get latest base currency and verification by api key ${API_KEY} and base currency ${base_currency}">
+<kw name="Get latest base currency and verification" library="api_library">
+<var>${base_code_verification}</var>
+<arg>${API_KEY}</arg>
+<arg>${base_currency}</arg>
+<msg timestamp="20230308 01:39:47.456" level="DEBUG">Starting new HTTPS connection (1): v6.exchangerate-api.com:443</msg>
+<msg timestamp="20230308 01:39:47.799" level="DEBUG">https://v6.exchangerate-api.com:443 "GET /v6/a54f9e17254e056d54ab74c8/latest/USD?api_key=a54f9e17254e056d54ab74c8&amp;base_currency=USD HTTP/1.1" 200 1572</msg>
+<msg timestamp="20230308 01:39:47.810" level="INFO">${base_code_verification} = True</msg>
+<status status="PASS" starttime="20230308 01:39:47.446" endtime="20230308 01:39:47.810"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${base_code_verification}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20230308 01:39:47.811" level="INFO">${base_code_verification} = True</msg>
+<status status="PASS" starttime="20230308 01:39:47.810" endtime="20230308 01:39:47.811"/>
+</kw>
+<status status="PASS" starttime="20230308 01:39:47.444" endtime="20230308 01:39:47.811"/>
+</kw>
+<doc>Test exchange rate API endpoint for USD</doc>
+<tag>TestCase</tag>
+<status status="PASS" starttime="20230308 01:39:41.965" endtime="20230308 01:39:47.812"/>
+</test>
+<status status="PASS" starttime="20230308 01:39:41.594" endtime="20230308 01:39:47.813"/>
+</suite>
+<status status="PASS" starttime="20230308 01:39:41.589" endtime="20230308 01:39:47.817"/>
+</suite>
+<status status="PASS" starttime="20230308 01:39:41.510" endtime="20230308 01:39:47.821"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">TestCase</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Functional Test">Functional Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="001 Exchange Rate">Functional Test.001 Exchange Rate</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="001 Get Base Currency Exchange Rate">Functional Test.001 Exchange Rate.001 Get Base Currency Exchange Rate</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

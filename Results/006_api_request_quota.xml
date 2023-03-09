@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.1a2 (Python 3.9.2 on win32)" generated="20230215 11:06:27.070" rpa="false" schemaversion="3">
+<suite id="s1" name="006 Get The Plan Quota" source="D:\Automatisation Test\RF_API_Tasks\robotframework-test-main\Tests\006_api_request_quota\006_get_the_plan_quota.robot">
+<test id="s1-t1" name="Test getting the plan quota with valid API key" line="10">
+<kw name="Given Get the plan quota by api key ${API_KEY}" library="api_request_quota" sourcename="Get the plan quota by api key ${API_KEY}">
+<kw name="Get the plan quota" library="api_library">
+<var>${quota_json}</var>
+<arg>${API_KEY}</arg>
+<msg timestamp="20230215 11:06:27.689" level="INFO">${quota_json} = {'result': 'success', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms_of_use': 'https://www.exchangerate-api.com/terms', 'plan_quota': 1500, 'requests_remaining': 1267, 'refresh_day_o...</msg>
+<status status="PASS" starttime="20230215 11:06:27.228" endtime="20230215 11:06:27.689"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${quota_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230215 11:06:27.690" level="INFO">${quota_json} = {'result': 'success', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms_of_use': 'https://www.exchangerate-api.com/terms', 'plan_quota': 1500, 'requests_remaining': 1267, 'refresh_day_o...</msg>
+<status status="PASS" starttime="20230215 11:06:27.689" endtime="20230215 11:06:27.690"/>
+</kw>
+<status status="PASS" starttime="20230215 11:06:27.227" endtime="20230215 11:06:27.690"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${response}</var>
+<arg>${quota_json['result']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:27.691" level="INFO">${response} = success</msg>
+<status status="PASS" starttime="20230215 11:06:27.691" endtime="20230215 11:06:27.691"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${documentation}</var>
+<arg>${quota_json['documentation']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:27.692" level="INFO">${documentation} = https://www.exchangerate-api.com/docs</msg>
+<status status="PASS" starttime="20230215 11:06:27.692" endtime="20230215 11:06:27.692"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${terms_of_use}</var>
+<arg>${quota_json['terms_of_use']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:27.693" level="INFO">${terms_of_use} = https://www.exchangerate-api.com/terms</msg>
+<status status="PASS" starttime="20230215 11:06:27.693" endtime="20230215 11:06:27.693"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${plan_quota}</var>
+<arg>${quota_json['plan_quota']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:27.695" level="INFO">${plan_quota} = 1500</msg>
+<status status="PASS" starttime="20230215 11:06:27.694" endtime="20230215 11:06:27.695"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${requests_remaining}</var>
+<arg>${quota_json['requests_remaining']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:27.696" level="INFO">${requests_remaining} = 1267</msg>
+<status status="PASS" starttime="20230215 11:06:27.695" endtime="20230215 11:06:27.696"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${refresh_day_of_month}</var>
+<arg>${quota_json['refresh_day_of_month']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:27.697" level="INFO">${refresh_day_of_month} = 14</msg>
+<status status="PASS" starttime="20230215 11:06:27.696" endtime="20230215 11:06:27.697"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${response}</arg>
+<arg>success</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:27.697" endtime="20230215 11:06:27.698"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${documentation}</arg>
+<arg>https://www.exchangerate-api.com/docs</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:27.699" endtime="20230215 11:06:27.699"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${terms_of_use}</arg>
+<arg>https://www.exchangerate-api.com/terms</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:27.700" endtime="20230215 11:06:27.700"/>
+</kw>
+<kw name="Then Should Be True" library="BuiltIn">
+<arg>${plan_quota} is not None</arg>
+<doc>Fails if the given condition is not true.</doc>
+<msg timestamp="20230215 11:06:27.701" level="INFO">&lt;string&gt;:1: SyntaxWarning: "is not" with a literal. Did you mean "!="?</msg>
+<status status="PASS" starttime="20230215 11:06:27.701" endtime="20230215 11:06:27.701"/>
+</kw>
+<kw name="Then Should Be True" library="BuiltIn">
+<arg>${requests_remaining} is not None</arg>
+<doc>Fails if the given condition is not true.</doc>
+<msg timestamp="20230215 11:06:27.703" level="INFO">&lt;string&gt;:1: SyntaxWarning: "is not" with a literal. Did you mean "!="?</msg>
+<status status="PASS" starttime="20230215 11:06:27.702" endtime="20230215 11:06:27.703"/>
+</kw>
+<kw name="Then Should Be True" library="BuiltIn">
+<arg>${refresh_day_of_month} is not None</arg>
+<doc>Fails if the given condition is not true.</doc>
+<msg timestamp="20230215 11:06:27.704" level="INFO">&lt;string&gt;:1: SyntaxWarning: "is not" with a literal. Did you mean "!="?</msg>
+<status status="PASS" starttime="20230215 11:06:27.704" endtime="20230215 11:06:27.704"/>
+</kw>
+<doc>Test plan quota API endpoint</doc>
+<tag>smoke</tag>
+<status status="PASS" starttime="20230215 11:06:27.226" endtime="20230215 11:06:27.705"/>
+</test>
+<test id="s1-t2" name="Test inactive-account error" line="27">
+<kw name="Set Variable" library="BuiltIn">
+<var>${API_KEY}</var>
+<arg>nln2</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:27.708" level="INFO">${API_KEY} = nln2</msg>
+<status status="PASS" starttime="20230215 11:06:27.707" endtime="20230215 11:06:27.708"/>
+</kw>
+<kw name="Given Get the plan quota by api key ${API_KEY}" library="api_request_quota" sourcename="Get the plan quota by api key ${API_KEY}">
+<kw name="Get the plan quota" library="api_library">
+<var>${quota_json}</var>
+<arg>${API_KEY}</arg>
+<msg timestamp="20230215 11:06:27.973" level="INFO">${quota_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'inactive-account', 'extra-info': 'Please contact ...</msg>
+<status status="PASS" starttime="20230215 11:06:27.708" endtime="20230215 11:06:27.973"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${quota_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230215 11:06:27.973" level="INFO">${quota_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'inactive-account', 'extra-info': 'Please contact ...</msg>
+<status status="PASS" starttime="20230215 11:06:27.973" endtime="20230215 11:06:27.973"/>
+</kw>
+<status status="PASS" starttime="20230215 11:06:27.708" endtime="20230215 11:06:27.973"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error}</var>
+<arg>${quota_json['result']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:27.974" level="INFO">${error} = error</msg>
+<status status="PASS" starttime="20230215 11:06:27.974" endtime="20230215 11:06:27.974"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error_type}</var>
+<arg>${quota_json['error-type']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:27.975" level="INFO">${error_type} = inactive-account</msg>
+<status status="PASS" starttime="20230215 11:06:27.975" endtime="20230215 11:06:27.975"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error}</arg>
+<arg>error</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:27.976" endtime="20230215 11:06:27.976"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error_type}</arg>
+<arg>inactive-account</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:27.977" endtime="20230215 11:06:27.977"/>
+</kw>
+<doc>Test inactive-account error</doc>
+<tag>smoke</tag>
+<status status="PASS" starttime="20230215 11:06:27.707" endtime="20230215 11:06:27.977"/>
+</test>
+<test id="s1-t3" name="Test invalid-key error" line="38">
+<kw name="Set Variable" library="BuiltIn">
+<var>${API_KEY}</var>
+<arg>fa</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:27.979" level="INFO">${API_KEY} = fa</msg>
+<status status="PASS" starttime="20230215 11:06:27.979" endtime="20230215 11:06:27.980"/>
+</kw>
+<kw name="Given Get the plan quota by api key ${API_KEY}" library="api_request_quota" sourcename="Get the plan quota by api key ${API_KEY}">
+<kw name="Get the plan quota" library="api_library">
+<var>${quota_json}</var>
+<arg>${API_KEY}</arg>
+<msg timestamp="20230215 11:06:28.256" level="INFO">${quota_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'invalid-key'}</msg>
+<status status="PASS" starttime="20230215 11:06:27.980" endtime="20230215 11:06:28.256"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${quota_json}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230215 11:06:28.256" level="INFO">${quota_json} = {'result': 'error', 'documentation': 'https://www.exchangerate-api.com/docs', 'terms-of-use': 'https://www.exchangerate-api.com/terms', 'error-type': 'invalid-key'}</msg>
+<status status="PASS" starttime="20230215 11:06:28.256" endtime="20230215 11:06:28.256"/>
+</kw>
+<status status="PASS" starttime="20230215 11:06:27.980" endtime="20230215 11:06:28.256"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error}</var>
+<arg>${quota_json['result']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:28.257" level="INFO">${error} = error</msg>
+<status status="PASS" starttime="20230215 11:06:28.257" endtime="20230215 11:06:28.257"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${error_type}</var>
+<arg>${quota_json['error-type']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230215 11:06:28.258" level="INFO">${error_type} = invalid-key</msg>
+<status status="PASS" starttime="20230215 11:06:28.258" endtime="20230215 11:06:28.259"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error}</arg>
+<arg>error</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:28.259" endtime="20230215 11:06:28.259"/>
+</kw>
+<kw name="Then Should Be Equal" library="BuiltIn">
+<arg>${error_type}</arg>
+<arg>invalid-key</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230215 11:06:28.260" endtime="20230215 11:06:28.260"/>
+</kw>
+<doc>Test invalid-key error</doc>
+<tag>smoke</tag>
+<status status="PASS" starttime="20230215 11:06:27.979" endtime="20230215 11:06:28.261"/>
+</test>
+<status status="PASS" starttime="20230215 11:06:27.074" endtime="20230215 11:06:28.262"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="006 Get The Plan Quota">006 Get The Plan Quota</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
