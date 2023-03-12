@@ -2,3 +2,4 @@ time_last_update_unix
 time_last_update_utc
 time_next_update_unix
 time_next_update_utc
+conversion_rates

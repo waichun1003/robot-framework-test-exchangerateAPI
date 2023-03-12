@@ -15,3 +15,7 @@ Get latest base currency and verification by api key ${API_KEY} and base currenc
 Wait for ${milliseconds} milliseconds
     Wait for milliseconds   ${milliseconds}
 
+Actual result ${response} should be deeply match to ${expected_path} expected result after masked values ${mask_path}
+    ${expected}=    Deep match json  ${response}  ${expected_path}  ${mask_path}
+    Set Test Variable    ${expected}
+    Should Be True       ${expected}

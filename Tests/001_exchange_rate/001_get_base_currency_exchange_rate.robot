@@ -6,14 +6,16 @@ Test Tags   TestCase
 ${API_KEY}    a54f9e17254e056d54ab74c8
 ${base_currency}    USD
 ${target_currency}      EUR
-
+${json_result}        Tests/001_exchange_rate/001_get_base_currency_exchange_rate.result
+${mask_path}           Tests/001_exchange_rate/001_get_base_currency_exchange_rate.mask
 *** Test Cases ***
 Test getting exchange rates with valid API key for USD
-   [Documentation]    Test exchange rate API endpoint for USD
-   Given Get exchange rate by api key ${API_KEY} and base currency ${base_currency}
-   When Wait for 5000 milliseconds
-   Then Get latest base currency and verification by api key ${API_KEY} and base currency ${base_currency}
-
+    [Documentation]    Test exchange rate API endpoint for USD
+    Given Get exchange rate by api key ${API_KEY} and base currency ${base_currency}
+    When Wait for 5000 milliseconds
+    Then Actual result ${exchange_rate_json} should be deeply match to ${json_result} expected result after masked values ${mask_path}
+    When Wait for 5000 milliseconds
+    Then Get latest base currency and verification by api key ${API_KEY} and base currency ${base_currency}
 
 #Test invalid-key error
 #   [Documentation]    Test invalid-key error
