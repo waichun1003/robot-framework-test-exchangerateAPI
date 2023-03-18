@@ -1,3 +1,4 @@
+import os
 import sys
 import datetime
 import time
@@ -11,10 +12,10 @@ from robot.libraries.BuiltIn import BuiltIn
 
 def write_to_console(message, url=None):
     now = datetime.datetime.now()
-    if isinstance(message, dict):
-        message = f"{now} - API request response:{url}\n{json.dumps(message, indent=4)}"
     if isinstance(message, str):
         message = f"{now} - {message}"
+    if isinstance(message, dict):
+        message = f"{now} - API request response:{url}\n{json.dumps(message, indent=4)}"
     BuiltIn().log_to_console(message)
 
 
@@ -56,12 +57,16 @@ def deep_match_json(response, expected_path, mask_path=None):
     expected_json = get_json_from_file(expected_path)
 
     mask = None
-    if mask_path:
+    if mask_path is not None and mask_path.strip() != '':
         with open(mask_path, 'r', encoding='utf-8') as f:
             mask = [line.strip() for line in f.readlines()]
+            # rest of your code
+            expected_json = apply_mask(expected_json, mask)
+            response_json = apply_mask(response, mask)
 
-    expected_json = apply_mask(expected_json, mask)
-    response_json = apply_mask(response, mask)
+    else:
+        expected_json = get_json_from_file(expected_path)
+        response_json = response
 
     write_to_console(f'Expected Result: {json.dumps(expected_json, indent=4)}')
     write_to_console(f'Actual Result: {json.dumps(response_json, indent=4)}')
@@ -116,7 +121,7 @@ def send_get_request(url, headers=None, params=None):
     if response.status_code != 200:
         write_to_console(f"API Request Error: {response.status_code} {response.reason}")
         write_to_console(f"API Request Error response: {json.dumps(json_response)}")
-        return None
+        return json_response
 
     return json_response
 
