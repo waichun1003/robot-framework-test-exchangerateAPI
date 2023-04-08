@@ -1,8 +1,4 @@
-import sys
-
 from Libraries.utilities import write_to_console
-
-sys.path.append('/Users/waichuncheng/PycharmProjects/robotframework-test-main 2')
 from robot.api.deco import keyword
 from Libraries.api_catalogue import pair_conversion
 from Libraries.api_catalogue import exchange_rate
@@ -10,12 +6,9 @@ from Libraries.api_catalogue import enriched_data
 from Libraries.api_catalogue import historical_data
 from Libraries.api_catalogue import api_request_quota
 from Libraries.api_catalogue import supported_codes
-from robot.libraries.BuiltIn import BuiltIn
+import sys
 
-
-@keyword("Get currency pair conversion")
-def get_currency_pair_conversion(api_key, from_currency, to_currency, amount):
-    return pair_conversion.get_pair_conversion(api_key, from_currency, to_currency, amount)
+sys.path.append('/Users/samuelcheng/PycharmProjects/robot-framework-test-exchangerateAPI')
 
 
 @keyword("Get base currency exchange rate")
@@ -23,12 +16,31 @@ def get_base_currency_exchange_rate(api_key, base_currency):
     return exchange_rate.get_exchange_rate(api_key, base_currency)
 
 
+@keyword("Get currency pair conversion")
+def get_currency_pair_conversion(api_key, from_currency, to_currency, amount=None):
+    return pair_conversion.get_pair_conversion(api_key, from_currency, to_currency, amount)
+
+
+@keyword("Verify currency conversion rate")
+def verify_currency_conversion_rate(api_key, from_currency, to_currency, amount):
+    pair_conversion_response = get_currency_pair_conversion(api_key, from_currency, to_currency, amount)
+    amount = float(amount)
+    actual_conversion_amount = float(pair_conversion_response['conversion_result'])
+    actual_conversion_rate = float(pair_conversion_response['conversion_rate'])
+    expected_conversion_rate = actual_conversion_amount / amount
+    if actual_conversion_rate == expected_conversion_rate:
+        write_to_console(f"Conversion rate correct! Actual conversion rate is: {actual_conversion_rate} equal to expect conversion rate:{expected_conversion_rate}")
+        return True
+    else:
+        raise Exception(f"Conversion rate is not equal to target {expected_conversion_rate}")
+
+
 @keyword("Get latest base currency and verification")
 def get_latest_base_currency_and_verification(api_key, base_currency):
     exchange_rate_response = get_base_currency_exchange_rate(api_key, base_currency)
     base_code = exchange_rate_response['base_code']
     if base_code == base_currency:
-        write_to_console("API request successful", f"Base Code Verification is True: {base_code} : {base_currency}")
+        write_to_console(f"API request successful! Base Code Verification is True: {base_code} : {base_currency}")
         return True
     else:
         raise Exception(f"Base code is not equal to target {base_currency}")

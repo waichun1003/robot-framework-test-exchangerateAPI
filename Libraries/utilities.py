@@ -1,3 +1,5 @@
+from robot.api.deco import keyword
+from robot.libraries.BuiltIn import BuiltIn
 import os
 import sys
 import datetime
@@ -5,9 +7,7 @@ import time
 import json
 import requests
 
-sys.path.append('/Users/waichuncheng/PycharmProjects/robotframework-test-main 2')
-from robot.api.deco import keyword
-from robot.libraries.BuiltIn import BuiltIn
+sys.path.append('/Users/samuelcheng/PycharmProjects/robot-framework-test-exchangerateAPI')
 
 
 def write_to_console(message, url=None):
